@@ -1,0 +1,52 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="$Undo">
+      <i c="1" l="1627024860800" />
+    </e>
+    <e n="EditorBackSpace">
+      <i c="245" l="1627028712134" />
+    </e>
+    <e n="EditorChooseLookupItem">
+      <i c="2" l="1627025974865" />
+    </e>
+    <e n="EditorDelete">
+      <i c="1" l="1627027441125" />
+    </e>
+    <e n="EditorDown">
+      <i c="145" l="1627027544087" />
+    </e>
+    <e n="EditorEnter">
+      <i c="5" l="1627027547846" />
+    </e>
+    <e n="EditorLeft">
+      <i c="102" l="1627027547125" />
+    </e>
+    <e n="EditorPaste">
+      <i c="6" l="1627025677526" />
+    </e>
+    <e n="EditorRight">
+      <i c="162" l="1627027542671" />
+    </e>
+    <e n="EditorTab">
+      <i c="1" l="1627027371392" />
+    </e>
+    <e n="EditorUp">
+      <i c="144" l="1627027543243" />
+    </e>
+    <e n="PasteMultiple">
+      <i c="1" l="1627025659639" />
+    </e>
+    <e n="SaveAll">
+      <i c="16" l="1627028715145" />
+    </e>
+    <e n="WelcomeScreen.OpenDirectoryProject">
+      <i c="3" l="1627028686425" />
+    </e>
+    <e n="com.intellij.ide.ReopenProjectAction">
+      <i c="1" l="1627027229515" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.ToolWindowHeader$HideAction">
+      <i c="1" l="1627027265187" />
+    </e>
+  </component>
+</application>

@@ -1,0 +1,975 @@
+{
+	"folder_history":
+	[
+	],
+	"last_version": 4113,
+	"last_window_id": 1,
+	"log_indexing": false,
+	"settings":
+	{
+		"new_window_full_screen": false,
+		"new_window_height": 744.0,
+		"new_window_maximized": false,
+		"new_window_settings":
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+				]
+			},
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 0.0,
+				"history":
+				[
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+			],
+			"find":
+			{
+				"height": 0.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"scrollbar_highlights": true,
+				"show_context": true,
+				"use_buffer2": true,
+				"use_gitignore": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 0.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"menu_visible": true,
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"pinned_build_system": "",
+			"replace":
+			{
+				"height": 0.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 150.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			}
+		},
+		"new_window_width": 1366.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+				]
+			},
+			"buffers":
+			[
+				{
+					"contents": "from typing import List  # noqa: F401\n\nfrom libqtile import bar, layout, widget\nfrom libqtile.config import Click, Drag, Group, Key, Match, Screen\nfrom libqtile.lazy import lazy\nfrom libqtile.utils import guess_terminal\nimport psutil\nmod = \"mod4\"\nterminal = \"alacritty\"\n\nkeys = [\n    # Switch between windows\n    Key([mod], \"h\", lazy.layout.left(), desc=\"Move focus to left\"),\n    Key([mod], \"l\", lazy.layout.right(), desc=\"Move focus to right\"),\n    Key([mod], \"j\", lazy.layout.down(), desc=\"Move focus down\"),\n    Key([mod], \"k\", lazy.layout.up(), desc=\"Move focus up\"),\n    Key([mod], \"space\", lazy.layout.next(),\n        desc=\"Move window focus to other window\"),\n\n    # Move windows between left/right columns or move up/down in current stack.\n    # Moving out of range in Columns layout will create new column.\n    Key([mod, \"shift\"], \"h\", lazy.layout.shuffle_left(),\n        desc=\"Move window to the left\"),\n    Key([mod, \"shift\"], \"l\", lazy.layout.shuffle_right(),\n        desc=\"Move window to the right\"),\n    Key([mod, \"shift\"], \"j\", lazy.layout.shuffle_down(),\n        desc=\"Move window down\"),\n    Key([mod, \"shift\"], \"k\", lazy.layout.shuffle_up(), desc=\"Move window up\"),\n\n    # Grow windows. If current window is on the edge of screen and direction\n    # will be to screen edge - window would shrink.\n    Key([mod, \"control\"], \"h\", lazy.layout.grow_left(),\n        desc=\"Grow window to the left\"),\n    Key([mod, \"control\"], \"l\", lazy.layout.grow_right(),\n        desc=\"Grow window to the right\"),\n    Key([mod, \"control\"], \"j\", lazy.layout.grow_down(),\n        desc=\"Grow window down\"),\n    Key([mod, \"control\"], \"k\", lazy.layout.grow_up(), desc=\"Grow window up\"),\n    Key([mod], \"n\", lazy.layout.normalize(), desc=\"Reset all window sizes\"),\n\n    # Toggle between split and unsplit sides of stack.\n    # Split = all windows displayed\n    # Unsplit = 1 window displayed, like Max layout, but still with\n    # multiple stack panes\n    Key([mod, \"shift\"], \"Return\", lazy.layout.toggle_split(),\n        desc=\"Toggle between split and unsplit sides of stack\"),\n    Key([mod], \"Return\", lazy.spawn(terminal), desc=\"Launch terminal\"),\n\n    # Toggle between different layouts as defined below\n    Key([mod], \"Tab\", lazy.next_layout(), desc=\"Toggle between layouts\"),\n    Key([mod], \"w\", lazy.window.kill(), desc=\"Kill focused window\"),\n\n    Key([mod, \"control\"], \"r\", lazy.restart(), desc=\"Restart Qtile\"),\n    Key([mod, \"control\"], \"q\", lazy.shutdown(), desc=\"Shutdown Qtile\"),\n    Key([mod], \"r\", lazy.spawncmd(),\n        desc=\"Spawn a command using a prompt widget\"),\n]\n\n\ngroup_names = [(\"WWW\"),\n               (\"DEV\"),\n               (\"SYS\"),\n               (\"DOC\"),\n               (\"VBOX\"),\n               (\"CHAT\"),\n               (\"MUS\"),\n               (\"VID\"),\n               (\"GFX\")]\n\ngroups = [Group(name) for name in group_names]\n\n#groups = [Group(i) for i in \"123456789\"]\n\n#for i in groups:\n    #keys.extend([\n        # mod1 + letter of group = switch to group\n        #Key([mod], i.name, lazy.group[i.name].toscreen(),\n            #desc=\"Switch to group {}\".format(i.name)),\n\n        # mod1 + shift + letter of group = switch to & move focused window to group\n        #Key([mod, \"shift\"], i.name, lazy.window.togroup(i.name, switch_group=True),\n            #desc=\"Switch to & move focused window to group {}\".format(i.name)),\n        # Or, use below if you prefer not to switch to that group.\n        # # mod1 + shift + letter of group = move focused window to group\n        # Key([mod, \"shift\"], i.name, lazy.window.togroup(i.name),\n        #     desc=\"move focused window to group {}\".format(i.name)),\n    #])\n\nlayouts = [\n    layout.Columns(border_focus_stack='#d75f5f'),\n    layout.Max(),\n    # Try more layouts by unleashing below layouts.\n    # layout.Stack(num_stacks=2),\n    # layout.Bsp(),\n    # layout.Matrix(),\n    # layout.MonadTall(),\n    # layout.MonadWide(),\n    # layout.RatioTile(),\n    # layout.Tile(),\n    # layout.TreeTab(),\n    # layout.VerticalTile(),\n    # layout.Zoomy(),\n]\n\nwidget_defaults = dict(\n    font='sans',\n    fontsize=12,\n    padding=3,\n)\nextension_defaults = widget_defaults.copy()\n\nscreens = [\n    Screen(\n        top=bar.Bar(\n            [\n                widget.CurrentLayout(),\n\t\twidget.GroupBox(),\n                widget.Prompt(),\n                widget.WindowName(),\n                widget.Chord(\n                    chords_colors={\n                        'launch': (\"#ff0000\", \"#ffffff\"),\n                    },\n                    name_transform=lambda name: name.upper(),\n                ),\n                widget.Systray(),\n                widget.Battery(),\n                widget.Net(\n                    interface=\"wlp3s0\",\n                    format='\\u2193 {down}'),\n                widget.Clock(format='%A - %d-%m-%Y - %H:%M'),\n            ],\n            24,\n        ),\n    ),\n]\n\n# Drag floating layouts.\nmouse = [\n    Drag([mod], \"Button1\", lazy.window.set_position_floating(),\n         start=lazy.window.get_position()),\n    Drag([mod], \"Button3\", lazy.window.set_size_floating(),\n         start=lazy.window.get_size()),\n    Click([mod], \"Button2\", lazy.window.bring_to_front())\n]\n\ndgroups_key_binder = None\ndgroups_app_rules = []  # type: List\nfollow_mouse_focus = True\nbring_front_click = False\ncursor_warp = False\nfloating_layout = layout.Floating(float_rules=[\n    # Run the utility of `xprop` to see the wm class and name of an X client.\n    *layout.Floating.default_float_rules,\n    Match(wm_class='confirmreset'),  # gitk\n    Match(wm_class='makebranch'),  # gitk\n    Match(wm_class='maketag'),  # gitk\n    Match(wm_class='ssh-askpass'),  # ssh-askpass\n    Match(title='branchdialog'),  # gitk\n    Match(title='pinentry'),  # GPG key password entry\n])\nauto_fullscreen = True\nfocus_on_window_activation = \"smart\"\nreconfigure_screens = True\n\n# If things like steam games want to auto-minimize themselves when losing\n# focus, should we respect this or not?\nauto_minimize = 2True\n\n# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this\n# string besides java UI toolkits; you can see several discussions on the\n# mailing lists, GitHub issues, and other WM documentation that suggest setting\n# this string if your java app doesn't work correctly. We may as well just lie\n# and say that we're a working one by default.\n#\n# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in\n# java that happens to be on java's whitelist.\nwmname = \"LG3D\"\n",
+					"file": "/home/sc/.config/qtile/config.py",
+					"file_size": 6457,
+					"file_write_time": 132716286524884098,
+					"settings":
+					{
+						"buffer_size": 6458,
+						"line_ending": "Unix"
+					},
+					"undo_stack":
+					[
+						[
+							5,
+							1,
+							"left_delete",
+							null,
+							"AQAAADEKAAAAAAAAMQoAAAAAAAABAAAAMQ",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAyCgAAAAAAADIKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							6,
+							1,
+							"insert",
+							{
+								"characters": "a"
+							},
+							"AQAAADEKAAAAAAAAMgoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAxCgAAAAAAADEKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							7,
+							1,
+							"left_delete",
+							null,
+							"AQAAADEKAAAAAAAAMQoAAAAAAAABAAAAYQ",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAyCgAAAAAAADIKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							8,
+							1,
+							"insert",
+							{
+								"characters": "1"
+							},
+							"AQAAADEKAAAAAAAAMgoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAxCgAAAAAAADEKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							9,
+							1,
+							"insert",
+							{
+								"characters": "R"
+							},
+							"AQAAADIKAAAAAAAAMwoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAyCgAAAAAAADIKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							10,
+							1,
+							"left_delete",
+							null,
+							"AQAAADIKAAAAAAAAMgoAAAAAAAABAAAAUg",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAzCgAAAAAAADMKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							11,
+							1,
+							"insert",
+							{
+								"characters": "R"
+							},
+							"AQAAADIKAAAAAAAAMwoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAyCgAAAAAAADIKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							12,
+							1,
+							"left_delete",
+							null,
+							"AQAAADIKAAAAAAAAMgoAAAAAAAABAAAAUg",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAzCgAAAAAAADMKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							15,
+							1,
+							"insert",
+							{
+								"characters": "$"
+							},
+							"AQAAABQKAAAAAAAAFQoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAUCgAAAAAAABQKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							16,
+							1,
+							"left_delete",
+							null,
+							"AQAAABQKAAAAAAAAFAoAAAAAAAABAAAAJA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAVCgAAAAAAABUKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							17,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAABQKAAAAAAAAFQoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAUCgAAAAAAABQKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							20,
+							1,
+							"insert",
+							{
+								"characters": "\n\n"
+							},
+							"AgAAAD4KAAAAAAAAPwoAAAAAAAAAAAAAPwoAAAAAAABACgAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA+CgAAAAAAAD4KAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							22,
+							1,
+							"paste",
+							null,
+							"AQAAAD8KAAAAAAAAogoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA/CgAAAAAAAD8KAAAAAAAAAAAAAAAAAAA"
+						],
+						[
+							25,
+							3,
+							"left_delete",
+							null,
+							"AwAAAHkKAAAAAAAAeQoAAAAAAAAkAAAAbWF0Y2hlcz1bTWF0Y2god21fY2xhc3M9WyJGaXJlZm94Il0peAoAAAAAAAB4CgAAAAAAAAEAAAAgdwoAAAAAAAB3CgAAAAAAAAEAAAAs",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACdCgAAAAAAAHkKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							32,
+							1,
+							"left_delete",
+							null,
+							"AQAAAFUKAAAAAAAAVQoAAAAAAAABAAAAYQ",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABWCgAAAAAAAFYKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							33,
+							1,
+							"insert",
+							{
+								"characters": "CON"
+							},
+							"AwAAAFUKAAAAAAAAVgoAAAAAAAAAAAAAVgoAAAAAAABXCgAAAAAAAAAAAABXCgAAAAAAAFgKAAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABVCgAAAAAAAFUKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							40,
+							1,
+							"left_delete",
+							null,
+							"AQAAAGcKAAAAAAAAZwoAAAAAAAABAAAAYg",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABoCgAAAAAAAGgKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							41,
+							1,
+							"insert",
+							{
+								"characters": "WWEB"
+							},
+							"BAAAAGcKAAAAAAAAaAoAAAAAAAAAAAAAaAoAAAAAAABpCgAAAAAAAAAAAABpCgAAAAAAAGoKAAAAAAAAAAAAAGoKAAAAAAAAawoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABnCgAAAAAAAGcKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							42,
+							3,
+							"left_delete",
+							null,
+							"AwAAAGoKAAAAAAAAagoAAAAAAAABAAAAQmkKAAAAAAAAaQoAAAAAAAABAAAARWgKAAAAAAAAaAoAAAAAAAABAAAAVw",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABrCgAAAAAAAGsKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							43,
+							1,
+							"insert",
+							{
+								"characters": "EB"
+							},
+							"AgAAAGgKAAAAAAAAaQoAAAAAAAAAAAAAaQoAAAAAAABqCgAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABoCgAAAAAAAGgKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							46,
+							1,
+							"left_delete",
+							null,
+							"AQAAAHkKAAAAAAAAeQoAAAAAAAABAAAAYw",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB6CgAAAAAAAHoKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							47,
+							1,
+							"insert",
+							{
+								"characters": "DEV"
+							},
+							"AwAAAHkKAAAAAAAAegoAAAAAAAAAAAAAegoAAAAAAAB7CgAAAAAAAAAAAAB7CgAAAAAAAHwKAAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB5CgAAAAAAAHkKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							53,
+							1,
+							"left_delete",
+							null,
+							"AQAAAH0KAAAAAAAAfQoAAAAAAAABAAAAXQ",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB+CgAAAAAAAH4KAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							56,
+							1,
+							"left_delete",
+							null,
+							"AQAAAH4KAAAAAAAAfgoAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB/CgAAAAAAAH8KAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							64,
+							2,
+							"left_delete",
+							null,
+							"AgAAAD8KAAAAAAAAPwoAAAAAAABCAAAAZ3JvdXBzID0gWwogICAgR3JvdXAoIkNPTiIpLAogICAgR3JvdXAoIldFQiIpLAogICAgR3JvdXAoIkRFViIpCl0KPgoAAAAAAAA+CgAAAAAAAAEAAAAK",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACBCgAAAAAAAD8KAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							67,
+							1,
+							"left_delete",
+							null,
+							"AQAAABQKAAAAAAAAFAoAAAAAAAABAAAAIw",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAVCgAAAAAAABUKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							68,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAABQKAAAAAAAAFQoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAUCgAAAAAAABQKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							80,
+							1,
+							"insert",
+							{
+								"characters": "\n\n"
+							},
+							"AgAAABMKAAAAAAAAFAoAAAAAAAAAAAAAFAoAAAAAAAAVCgAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAATCgAAAAAAABMKAAAAAAAAAAAAAAAALEA"
+						],
+						[
+							81,
+							1,
+							"paste",
+							null,
+							"AQAAABUKAAAAAAAAEQwAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAVCgAAAAAAABUKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							91,
+							8,
+							"left_delete",
+							null,
+							"CAAAAP8LAAAAAAAA/wsAAAAAAAABAAAAc/4LAAAAAAAA/gsAAAAAAAABAAAAZ/0LAAAAAAAA/QsAAAAAAAABAAAAcvwLAAAAAAAA/AsAAAAAAAABAAAAYfsLAAAAAAAA+wsAAAAAAAABAAAAd/oLAAAAAAAA+gsAAAAAAAABAAAAa/kLAAAAAAAA+QsAAAAAAAABAAAAIPgLAAAAAAAA+AsAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAADAAAAAAAAAAMAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							94,
+							10,
+							"left_delete",
+							null,
+							"CgAAAO0LAAAAAAAA7QsAAAAAAAABAAAAc+wLAAAAAAAA7AsAAAAAAAABAAAAZ+sLAAAAAAAA6wsAAAAAAAABAAAAcuoLAAAAAAAA6gsAAAAAAAABAAAAYekLAAAAAAAA6QsAAAAAAAABAAAAd+gLAAAAAAAA6AsAAAAAAAABAAAAa+cLAAAAAAAA5wsAAAAAAAABAAAAKuYLAAAAAAAA5gsAAAAAAAABAAAAKuULAAAAAAAA5QsAAAAAAAABAAAAIOQLAAAAAAAA5AsAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADuCwAAAAAAAO4LAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							100,
+							17,
+							"left_delete",
+							null,
+							"EQAAAMwLAAAAAAAAzAsAAAAAAAABAAAAKcsLAAAAAAAAywsAAAAAAAABAAAAfcoLAAAAAAAAygsAAAAAAAABAAAAJ8kLAAAAAAAAyQsAAAAAAAABAAAAZ8gLAAAAAAAAyAsAAAAAAAABAAAAbscLAAAAAAAAxwsAAAAAAAABAAAAacYLAAAAAAAAxgsAAAAAAAABAAAAdMULAAAAAAAAxQsAAAAAAAABAAAAYcQLAAAAAAAAxAsAAAAAAAABAAAAb8MLAAAAAAAAwwsAAAAAAAABAAAAbMILAAAAAAAAwgsAAAAAAAABAAAAZsELAAAAAAAAwQsAAAAAAAABAAAAJ8ALAAAAAAAAwAsAAAAAAAABAAAAIL8LAAAAAAAAvwsAAAAAAAABAAAAOr4LAAAAAAAAvgsAAAAAAAABAAAAJ70LAAAAAAAAvQsAAAAAAAABAAAAdLwLAAAAAAAAvAsAAAAAAAABAAAAdQ",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADNCwAAAAAAAM0LAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							101,
+							4,
+							"left_delete",
+							null,
+							"BAAAALsLAAAAAAAAuwsAAAAAAAABAAAAb7oLAAAAAAAAugsAAAAAAAABAAAAebkLAAAAAAAAuQsAAAAAAAABAAAAYbgLAAAAAAAAuAsAAAAAAAABAAAAbA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC8CwAAAAAAALwLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							102,
+							4,
+							"left_delete",
+							null,
+							"BAAAALcLAAAAAAAAtwsAAAAAAAABAAAAJ7YLAAAAAAAAtgsAAAAAAAABAAAAe7ULAAAAAAAAtQsAAAAAAAABAAAAILQLAAAAAAAAtAsAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC4CwAAAAAAALgLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							110,
+							24,
+							"left_delete",
+							null,
+							"GAAAAJsLAAAAAAAAmwsAAAAAAAABAAAAfZoLAAAAAAAAmgsAAAAAAAABAAAAJ5kLAAAAAAAAmQsAAAAAAAABAAAAbJgLAAAAAAAAmAsAAAAAAAABAAAAbJcLAAAAAAAAlwsAAAAAAAABAAAAYZYLAAAAAAAAlgsAAAAAAAABAAAAdJULAAAAAAAAlQsAAAAAAAABAAAAZJQLAAAAAAAAlAsAAAAAAAABAAAAYZMLAAAAAAAAkwsAAAAAAAABAAAAbpILAAAAAAAAkgsAAAAAAAABAAAAb5ELAAAAAAAAkQsAAAAAAAABAAAAbZALAAAAAAAAkAsAAAAAAAABAAAAJ48LAAAAAAAAjwsAAAAAAAABAAAAII4LAAAAAAAAjgsAAAAAAAABAAAAOo0LAAAAAAAAjQsAAAAAAAABAAAAJ4wLAAAAAAAAjAsAAAAAAAABAAAAdIsLAAAAAAAAiwsAAAAAAAABAAAAdYoLAAAAAAAAigsAAAAAAAABAAAAb4kLAAAAAAAAiQsAAAAAAAABAAAAeYgLAAAAAAAAiAsAAAAAAAABAAAAYYcLAAAAAAAAhwsAAAAAAAABAAAAbIYLAAAAAAAAhgsAAAAAAAABAAAAJ4ULAAAAAAAAhQsAAAAAAAABAAAAe4QLAAAAAAAAhAsAAAAAAAABAAAAIA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACcCwAAAAAAAJwLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							111,
+							1,
+							"left_delete",
+							null,
+							"AQAAAIMLAAAAAAAAgwsAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACECwAAAAAAAIQLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							114,
+							23,
+							"left_delete",
+							null,
+							"FwAAAGoLAAAAAAAAagsAAAAAAAABAAAAfWkLAAAAAAAAaQsAAAAAAAABAAAAJ2gLAAAAAAAAaAsAAAAAAAABAAAAbGcLAAAAAAAAZwsAAAAAAAABAAAAbGYLAAAAAAAAZgsAAAAAAAABAAAAYWULAAAAAAAAZQsAAAAAAAABAAAAdGQLAAAAAAAAZAsAAAAAAAABAAAAZGMLAAAAAAAAYwsAAAAAAAABAAAAYWILAAAAAAAAYgsAAAAAAAABAAAAbmELAAAAAAAAYQsAAAAAAAABAAAAb2ALAAAAAAAAYAsAAAAAAAABAAAAbV8LAAAAAAAAXwsAAAAAAAABAAAAJ14LAAAAAAAAXgsAAAAAAAABAAAAIF0LAAAAAAAAXQsAAAAAAAABAAAAOlwLAAAAAAAAXAsAAAAAAAABAAAAJ1sLAAAAAAAAWwsAAAAAAAABAAAAdFoLAAAAAAAAWgsAAAAAAAABAAAAdVkLAAAAAAAAWQsAAAAAAAABAAAAb1gLAAAAAAAAWAsAAAAAAAABAAAAeVcLAAAAAAAAVwsAAAAAAAABAAAAYVYLAAAAAAAAVgsAAAAAAAABAAAAbFULAAAAAAAAVQsAAAAAAAABAAAAJ1QLAAAAAAAAVAsAAAAAAAABAAAAew",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABrCwAAAAAAAGsLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							115,
+							2,
+							"left_delete",
+							null,
+							"AgAAAFMLAAAAAAAAUwsAAAAAAAABAAAAIFILAAAAAAAAUgsAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABUCwAAAAAAAFQLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							120,
+							22,
+							"left_delete",
+							null,
+							"FgAAADkLAAAAAAAAOQsAAAAAAAABAAAAfTgLAAAAAAAAOAsAAAAAAAABAAAAJzcLAAAAAAAANwsAAAAAAAABAAAAbDYLAAAAAAAANgsAAAAAAAABAAAAbDULAAAAAAAANQsAAAAAAAABAAAAYTQLAAAAAAAANAsAAAAAAAABAAAAdDMLAAAAAAAAMwsAAAAAAAABAAAAZDILAAAAAAAAMgsAAAAAAAABAAAAYTELAAAAAAAAMQsAAAAAAAABAAAAbjALAAAAAAAAMAsAAAAAAAABAAAAby8LAAAAAAAALwsAAAAAAAABAAAAbS4LAAAAAAAALgsAAAAAAAABAAAAJy0LAAAAAAAALQsAAAAAAAABAAAAICwLAAAAAAAALAsAAAAAAAABAAAAOisLAAAAAAAAKwsAAAAAAAABAAAAJyoLAAAAAAAAKgsAAAAAAAABAAAAdCkLAAAAAAAAKQsAAAAAAAABAAAAdSgLAAAAAAAAKAsAAAAAAAABAAAAbycLAAAAAAAAJwsAAAAAAAABAAAAeSYLAAAAAAAAJgsAAAAAAAABAAAAYSULAAAAAAAAJQsAAAAAAAABAAAAbCQLAAAAAAAAJAsAAAAAAAABAAAAJw",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA6CwAAAAAAADoLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							121,
+							3,
+							"left_delete",
+							null,
+							"AwAAACMLAAAAAAAAIwsAAAAAAAABAAAAeyILAAAAAAAAIgsAAAAAAAABAAAAICELAAAAAAAAIQsAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAkCwAAAAAAACQLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							124,
+							23,
+							"left_delete",
+							null,
+							"FwAAAAcLAAAAAAAABwsAAAAAAAABAAAAfQYLAAAAAAAABgsAAAAAAAABAAAAJwULAAAAAAAABQsAAAAAAAABAAAAbAQLAAAAAAAABAsAAAAAAAABAAAAbAMLAAAAAAAAAwsAAAAAAAABAAAAYQILAAAAAAAAAgsAAAAAAAABAAAAdAELAAAAAAAAAQsAAAAAAAABAAAAZAALAAAAAAAAAAsAAAAAAAABAAAAYf8KAAAAAAAA/woAAAAAAAABAAAAbv4KAAAAAAAA/goAAAAAAAABAAAAb/0KAAAAAAAA/QoAAAAAAAABAAAAbfwKAAAAAAAA/AoAAAAAAAABAAAAJ/sKAAAAAAAA+woAAAAAAAABAAAAIPoKAAAAAAAA+goAAAAAAAABAAAAOvkKAAAAAAAA+QoAAAAAAAABAAAAJ/gKAAAAAAAA+AoAAAAAAAABAAAAdPcKAAAAAAAA9woAAAAAAAABAAAAdfYKAAAAAAAA9goAAAAAAAABAAAAb/UKAAAAAAAA9QoAAAAAAAABAAAAefQKAAAAAAAA9AoAAAAAAAABAAAAYfMKAAAAAAAA8woAAAAAAAABAAAAbPIKAAAAAAAA8goAAAAAAAABAAAAJ/EKAAAAAAAA8QoAAAAAAAABAAAAew",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAICwAAAAAAAAgLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							125,
+							2,
+							"left_delete",
+							null,
+							"AgAAAPAKAAAAAAAA8AoAAAAAAAABAAAAIO8KAAAAAAAA7woAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADxCgAAAAAAAPEKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							128,
+							24,
+							"left_delete",
+							null,
+							"GAAAANUKAAAAAAAA1QoAAAAAAAABAAAAfdQKAAAAAAAA1AoAAAAAAAABAAAAJ9MKAAAAAAAA0woAAAAAAAABAAAAbNIKAAAAAAAA0goAAAAAAAABAAAAbNEKAAAAAAAA0QoAAAAAAAABAAAAYdAKAAAAAAAA0AoAAAAAAAABAAAAdM8KAAAAAAAAzwoAAAAAAAABAAAAZM4KAAAAAAAAzgoAAAAAAAABAAAAYc0KAAAAAAAAzQoAAAAAAAABAAAAbswKAAAAAAAAzAoAAAAAAAABAAAAb8sKAAAAAAAAywoAAAAAAAABAAAAbcoKAAAAAAAAygoAAAAAAAABAAAAJ8kKAAAAAAAAyQoAAAAAAAABAAAAIMgKAAAAAAAAyAoAAAAAAAABAAAAOscKAAAAAAAAxwoAAAAAAAABAAAAJ8YKAAAAAAAAxgoAAAAAAAABAAAAdMUKAAAAAAAAxQoAAAAAAAABAAAAdcQKAAAAAAAAxAoAAAAAAAABAAAAb8MKAAAAAAAAwwoAAAAAAAABAAAAecIKAAAAAAAAwgoAAAAAAAABAAAAYcEKAAAAAAAAwQoAAAAAAAABAAAAbMAKAAAAAAAAwAoAAAAAAAABAAAAJ78KAAAAAAAAvwoAAAAAAAABAAAAe74KAAAAAAAAvgoAAAAAAAABAAAAIA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADWCgAAAAAAANYKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							129,
+							1,
+							"left_delete",
+							null,
+							"AQAAAL0KAAAAAAAAvQoAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC+CgAAAAAAAL4KAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							132,
+							22,
+							"left_delete",
+							null,
+							"FgAAAKQKAAAAAAAApAoAAAAAAAABAAAAfaMKAAAAAAAAowoAAAAAAAABAAAAJ6IKAAAAAAAAogoAAAAAAAABAAAAbKEKAAAAAAAAoQoAAAAAAAABAAAAbKAKAAAAAAAAoAoAAAAAAAABAAAAYZ8KAAAAAAAAnwoAAAAAAAABAAAAdJ4KAAAAAAAAngoAAAAAAAABAAAAZJ0KAAAAAAAAnQoAAAAAAAABAAAAYZwKAAAAAAAAnAoAAAAAAAABAAAAbpsKAAAAAAAAmwoAAAAAAAABAAAAb5oKAAAAAAAAmgoAAAAAAAABAAAAbZkKAAAAAAAAmQoAAAAAAAABAAAAJ5gKAAAAAAAAmAoAAAAAAAABAAAAIJcKAAAAAAAAlwoAAAAAAAABAAAAOpYKAAAAAAAAlgoAAAAAAAABAAAAJ5UKAAAAAAAAlQoAAAAAAAABAAAAdJQKAAAAAAAAlAoAAAAAAAABAAAAdZMKAAAAAAAAkwoAAAAAAAABAAAAb5IKAAAAAAAAkgoAAAAAAAABAAAAeZEKAAAAAAAAkQoAAAAAAAABAAAAYZAKAAAAAAAAkAoAAAAAAAABAAAAbI8KAAAAAAAAjwoAAAAAAAABAAAAJw",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAClCgAAAAAAAKUKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							133,
+							3,
+							"left_delete",
+							null,
+							"AwAAAI4KAAAAAAAAjgoAAAAAAAABAAAAe40KAAAAAAAAjQoAAAAAAAABAAAAIIwKAAAAAAAAjAoAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACPCgAAAAAAAI8KAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							136,
+							23,
+							"left_delete",
+							null,
+							"FwAAAHQKAAAAAAAAdAoAAAAAAAABAAAAKXMKAAAAAAAAcwoAAAAAAAABAAAAfXIKAAAAAAAAcgoAAAAAAAABAAAAJ3EKAAAAAAAAcQoAAAAAAAABAAAAbHAKAAAAAAAAcAoAAAAAAAABAAAAbG8KAAAAAAAAbwoAAAAAAAABAAAAYW4KAAAAAAAAbgoAAAAAAAABAAAAdG0KAAAAAAAAbQoAAAAAAAABAAAAZGwKAAAAAAAAbAoAAAAAAAABAAAAYWsKAAAAAAAAawoAAAAAAAABAAAAbmoKAAAAAAAAagoAAAAAAAABAAAAb2kKAAAAAAAAaQoAAAAAAAABAAAAbWgKAAAAAAAAaAoAAAAAAAABAAAAJ2cKAAAAAAAAZwoAAAAAAAABAAAAIGYKAAAAAAAAZgoAAAAAAAABAAAAOmUKAAAAAAAAZQoAAAAAAAABAAAAJ2QKAAAAAAAAZAoAAAAAAAABAAAAdGMKAAAAAAAAYwoAAAAAAAABAAAAdWIKAAAAAAAAYgoAAAAAAAABAAAAb2EKAAAAAAAAYQoAAAAAAAABAAAAeWAKAAAAAAAAYAoAAAAAAAABAAAAYV8KAAAAAAAAXwoAAAAAAAABAAAAbF4KAAAAAAAAXgoAAAAAAAABAAAAJw",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB1CgAAAAAAAHUKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							137,
+							3,
+							"left_delete",
+							null,
+							"AwAAAF0KAAAAAAAAXQoAAAAAAAABAAAAe1wKAAAAAAAAXAoAAAAAAAABAAAAIFsKAAAAAAAAWwoAAAAAAAABAAAALA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABeCgAAAAAAAF4KAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							141,
+							27,
+							"left_delete",
+							null,
+							"GwAAAEMKAAAAAAAAQwoAAAAAAAABAAAAKUIKAAAAAAAAQgoAAAAAAAABAAAAfUEKAAAAAAAAQQoAAAAAAAABAAAAJ0AKAAAAAAAAQAoAAAAAAAABAAAAbD8KAAAAAAAAPwoAAAAAAAABAAAAbD4KAAAAAAAAPgoAAAAAAAABAAAAYT0KAAAAAAAAPQoAAAAAAAABAAAAdDwKAAAAAAAAPAoAAAAAAAABAAAAZDsKAAAAAAAAOwoAAAAAAAABAAAAYToKAAAAAAAAOgoAAAAAAAABAAAAbjkKAAAAAAAAOQoAAAAAAAABAAAAbzgKAAAAAAAAOAoAAAAAAAABAAAAbTcKAAAAAAAANwoAAAAAAAABAAAAJzYKAAAAAAAANgoAAAAAAAABAAAAIDUKAAAAAAAANQoAAAAAAAABAAAAOjQKAAAAAAAANAoAAAAAAAABAAAAJzMKAAAAAAAAMwoAAAAAAAABAAAAdDIKAAAAAAAAMgoAAAAAAAABAAAAdTEKAAAAAAAAMQoAAAAAAAABAAAAbzAKAAAAAAAAMAoAAAAAAAABAAAAeS8KAAAAAAAALwoAAAAAAAABAAAAYS4KAAAAAAAALgoAAAAAAAABAAAAbC0KAAAAAAAALQoAAAAAAAABAAAAJywKAAAAAAAALAoAAAAAAAABAAAAeysKAAAAAAAAKwoAAAAAAAABAAAAICoKAAAAAAAAKgoAAAAAAAABAAAALCkKAAAAAAAAKQoAAAAAAAABAAAAIg",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABECgAAAAAAAEQKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							142,
+							1,
+							"insert",
+							{
+								"characters": "\""
+							},
+							"AQAAACkKAAAAAAAAKgoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAApCgAAAAAAACkKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							147,
+							1,
+							"insert",
+							{
+								"characters": ")"
+							},
+							"AQAAACoKAAAAAAAAKwoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAqCgAAAAAAACoKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							157,
+							1,
+							"insert",
+							{
+								"characters": ")"
+							},
+							"AQAAAOsKAAAAAAAA7AoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADrCgAAAAAAAOsKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							176,
+							1,
+							"insert",
+							{
+								"characters": ")"
+							},
+							"AQAAAEIKAAAAAAAAQwoAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABCCgAAAAAAAEIKAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							183,
+							1,
+							"insert",
+							{
+								"characters": "u"
+							},
+							"AQAAAEsLAAAAAAAATAsAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABLCwAAAAAAAEsLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							184,
+							1,
+							"left_delete",
+							null,
+							"AQAAAEsLAAAAAAAASwsAAAAAAAABAAAAdQ",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABMCwAAAAAAAEwLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							185,
+							1,
+							"insert",
+							{
+								"characters": "3"
+							},
+							"AQAAAEsLAAAAAAAATAsAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABLCwAAAAAAAEsLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							241,
+							1,
+							"left_delete",
+							null,
+							"AQAAAEsLAAAAAAAASwsAAAAAAAABAAAAMw",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABMCwAAAAAAAEwLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							242,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAAEsLAAAAAAAATAsAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABLCwAAAAAAAEsLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							251,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAAGELAAAAAAAAYgsAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABhCwAAAAAAAGELAAAAAAAAAAAAAAAATEA"
+						],
+						[
+							256,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAAKsLAAAAAAAArAsAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACrCwAAAAAAAKsLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							259,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAAOoLAAAAAAAA6wsAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADqCwAAAAAAAOoLAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							267,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAAHMMAAAAAAAAdAwAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABzDAAAAAAAAHMMAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							270,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAAMwMAAAAAAAAzQwAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADMDAAAAAAAAMwMAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							281,
+							1,
+							"insert",
+							{
+								"characters": "#"
+							},
+							"AQAAACsOAAAAAAAALA4AAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAArDgAAAAAAACsOAAAAAAAAAAAAAAAATEA"
+						],
+						[
+							289,
+							2,
+							"left_delete",
+							null,
+							"AgAAAI0QAAAAAAAAjRAAAAAAAAAiAAAAICAgICAgICAgICAgICAgIHdpZGdldC5Hcm91cEJveCgpLIwQAAAAAAAAjBAAAAAAAAABAAAACg",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACvEAAAAAAAAI0QAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							290,
+							1,
+							"revert",
+							null,
+							"AgAAAAAAAAAAAAAAAAAAAAAAAAAkGQAAZnJvbSB0eXBpbmcgaW1wb3J0IExpc3QgICMgbm9xYTogRjQwMQoKZnJvbSBsaWJxdGlsZSBpbXBvcnQgYmFyLCBsYXlvdXQsIHdpZGdldApmcm9tIGxpYnF0aWxlLmNvbmZpZyBpbXBvcnQgQ2xpY2ssIERyYWcsIEdyb3VwLCBLZXksIE1hdGNoLCBTY3JlZW4KZnJvbSBsaWJxdGlsZS5sYXp5IGltcG9ydCBsYXp5CmZyb20gbGlicXRpbGUudXRpbHMgaW1wb3J0IGd1ZXNzX3Rlcm1pbmFsCmltcG9ydCBwc3V0aWwKbW9kID0gIm1vZDQiCnRlcm1pbmFsID0gImFsYWNyaXR0eSIKCmtleXMgPSBbCiAgICAjIFN3aXRjaCBiZXR3ZWVuIHdpbmRvd3MKICAgIEtleShbbW9kXSwgImgiLCBsYXp5LmxheW91dC5sZWZ0KCksIGRlc2M9Ik1vdmUgZm9jdXMgdG8gbGVmdCIpLAogICAgS2V5KFttb2RdLCAibCIsIGxhenkubGF5b3V0LnJpZ2h0KCksIGRlc2M9Ik1vdmUgZm9jdXMgdG8gcmlnaHQiKSwKICAgIEtleShbbW9kXSwgImoiLCBsYXp5LmxheW91dC5kb3duKCksIGRlc2M9Ik1vdmUgZm9jdXMgZG93biIpLAogICAgS2V5KFttb2RdLCAiayIsIGxhenkubGF5b3V0LnVwKCksIGRlc2M9Ik1vdmUgZm9jdXMgdXAiKSwKICAgIEtleShbbW9kXSwgInNwYWNlIiwgbGF6eS5sYXlvdXQubmV4dCgpLAogICAgICAgIGRlc2M9Ik1vdmUgd2luZG93IGZvY3VzIHRvIG90aGVyIHdpbmRvdyIpLAoKICAgICMgTW92ZSB3aW5kb3dzIGJldHdlZW4gbGVmdC9yaWdodCBjb2x1bW5zIG9yIG1vdmUgdXAvZG93biBpbiBjdXJyZW50IHN0YWNrLgogICAgIyBNb3Zpbmcgb3V0IG9mIHJhbmdlIGluIENvbHVtbnMgbGF5b3V0IHdpbGwgY3JlYXRlIG5ldyBjb2x1bW4uCiAgICBLZXkoW21vZCwgInNoaWZ0Il0sICJoIiwgbGF6eS5sYXlvdXQuc2h1ZmZsZV9sZWZ0KCksCiAgICAgICAgZGVzYz0iTW92ZSB3aW5kb3cgdG8gdGhlIGxlZnQiKSwKICAgIEtleShbbW9kLCAic2hpZnQiXSwgImwiLCBsYXp5LmxheW91dC5zaHVmZmxlX3JpZ2h0KCksCiAgICAgICAgZGVzYz0iTW92ZSB3aW5kb3cgdG8gdGhlIHJpZ2h0IiksCiAgICBLZXkoW21vZCwgInNoaWZ0Il0sICJqIiwgbGF6eS5sYXlvdXQuc2h1ZmZsZV9kb3duKCksCiAgICAgICAgZGVzYz0iTW92ZSB3aW5kb3cgZG93biIpLAogICAgS2V5KFttb2QsICJzaGlmdCJdLCAiayIsIGxhenkubGF5b3V0LnNodWZmbGVfdXAoKSwgZGVzYz0iTW92ZSB3aW5kb3cgdXAiKSwKCiAgICAjIEdyb3cgd2luZG93cy4gSWYgY3VycmVudCB3aW5kb3cgaXMgb24gdGhlIGVkZ2Ugb2Ygc2NyZWVuIGFuZCBkaXJlY3Rpb24KICAgICMgd2lsbCBiZSB0byBzY3JlZW4gZWRnZSAtIHdpbmRvdyB3b3VsZCBzaHJpbmsuCiAgICBLZXkoW21vZCwgImNvbnRyb2wiXSwgImgiLCBsYXp5LmxheW91dC5ncm93X2xlZnQoKSwKICAgICAgICBkZXNjPSJHcm93IHdpbmRvdyB0byB0aGUgbGVmdCIpLAogICAgS2V5KFttb2QsICJjb250cm9sIl0sICJsIiwgbGF6eS5sYXlvdXQuZ3Jvd19yaWdodCgpLAogICAgICAgIGRlc2M9Ikdyb3cgd2luZG93IHRvIHRoZSByaWdodCIpLAogICAgS2V5KFttb2QsICJjb250cm9sIl0sICJqIiwgbGF6eS5sYXlvdXQuZ3Jvd19kb3duKCksCiAgICAgICAgZGVzYz0iR3JvdyB3aW5kb3cgZG93biIpLAogICAgS2V5KFttb2QsICJjb250cm9sIl0sICJrIiwgbGF6eS5sYXlvdXQuZ3Jvd191cCgpLCBkZXNjPSJHcm93IHdpbmRvdyB1cCIpLAogICAgS2V5KFttb2RdLCAibiIsIGxhenkubGF5b3V0Lm5vcm1hbGl6ZSgpLCBkZXNjPSJSZXNldCBhbGwgd2luZG93IHNpemVzIiksCgogICAgIyBUb2dnbGUgYmV0d2VlbiBzcGxpdCBhbmQgdW5zcGxpdCBzaWRlcyBvZiBzdGFjay4KICAgICMgU3BsaXQgPSBhbGwgd2luZG93cyBkaXNwbGF5ZWQKICAgICMgVW5zcGxpdCA9IDEgd2luZG93IGRpc3BsYXllZCwgbGlrZSBNYXggbGF5b3V0LCBidXQgc3RpbGwgd2l0aAogICAgIyBtdWx0aXBsZSBzdGFjayBwYW5lcwogICAgS2V5KFttb2QsICJzaGlmdCJdLCAiUmV0dXJuIiwgbGF6eS5sYXlvdXQudG9nZ2xlX3NwbGl0KCksCiAgICAgICAgZGVzYz0iVG9nZ2xlIGJldHdlZW4gc3BsaXQgYW5kIHVuc3BsaXQgc2lkZXMgb2Ygc3RhY2siKSwKICAgIEtleShbbW9kXSwgIlJldHVybiIsIGxhenkuc3Bhd24odGVybWluYWwpLCBkZXNjPSJMYXVuY2ggdGVybWluYWwiKSwKCiAgICAjIFRvZ2dsZSBiZXR3ZWVuIGRpZmZlcmVudCBsYXlvdXRzIGFzIGRlZmluZWQgYmVsb3cKICAgIEtleShbbW9kXSwgIlRhYiIsIGxhenkubmV4dF9sYXlvdXQoKSwgZGVzYz0iVG9nZ2xlIGJldHdlZW4gbGF5b3V0cyIpLAogICAgS2V5KFttb2RdLCAidyIsIGxhenkud2luZG93LmtpbGwoKSwgZGVzYz0iS2lsbCBmb2N1c2VkIHdpbmRvdyIpLAoKICAgIEtleShbbW9kLCAiY29udHJvbCJdLCAiciIsIGxhenkucmVzdGFydCgpLCBkZXNjPSJSZXN0YXJ0IFF0aWxlIiksCiAgICBLZXkoW21vZCwgImNvbnRyb2wiXSwgInEiLCBsYXp5LnNodXRkb3duKCksIGRlc2M9IlNodXRkb3duIFF0aWxlIiksCiAgICBLZXkoW21vZF0sICJyIiwgbGF6eS5zcGF3bmNtZCgpLAogICAgICAgIGRlc2M9IlNwYXduIGEgY29tbWFuZCB1c2luZyBhIHByb21wdCB3aWRnZXQiKSwKXQoKCmdyb3VwX25hbWVzID0gWygiV1dXIiksCiAgICAgICAgICAgICAgICgiREVWIiksCiAgICAgICAgICAgICAgICgiU1lTIiksCiAgICAgICAgICAgICAgICgiRE9DIiksCiAgICAgICAgICAgICAgICgiVkJPWCIpLAogICAgICAgICAgICAgICAoIkNIQVQiKSwKICAgICAgICAgICAgICAgKCJNVVMiKSwKICAgICAgICAgICAgICAgKCJWSUQiKSwKICAgICAgICAgICAgICAgKCJHRlgiKV0KCmdyb3VwcyA9IFtHcm91cChuYW1lKSBmb3IgbmFtZSBpbiBncm91cF9uYW1lc10KCiNncm91cHMgPSBbR3JvdXAoaSkgZm9yIGkgaW4gIjEyMzQ1Njc4OSJdCgojZm9yIGkgaW4gZ3JvdXBzOgogICAgI2tleXMuZXh0ZW5kKFsKICAgICAgICAjIG1vZDEgKyBsZXR0ZXIgb2YgZ3JvdXAgPSBzd2l0Y2ggdG8gZ3JvdXAKICAgICAgICAjS2V5KFttb2RdLCBpLm5hbWUsIGxhenkuZ3JvdXBbaS5uYW1lXS50b3NjcmVlbigpLAogICAgICAgICAgICAjZGVzYz0iU3dpdGNoIHRvIGdyb3VwIHt9Ii5mb3JtYXQoaS5uYW1lKSksCgogICAgICAgICMgbW9kMSArIHNoaWZ0ICsgbGV0dGVyIG9mIGdyb3VwID0gc3dpdGNoIHRvICYgbW92ZSBmb2N1c2VkIHdpbmRvdyB0byBncm91cAogICAgICAgICNLZXkoW21vZCwgInNoaWZ0Il0sIGkubmFtZSwgbGF6eS53aW5kb3cudG9ncm91cChpLm5hbWUsIHN3aXRjaF9ncm91cD1UcnVlKSwKICAgICAgICAgICAgI2Rlc2M9IlN3aXRjaCB0byAmIG1vdmUgZm9jdXNlZCB3aW5kb3cgdG8gZ3JvdXAge30iLmZvcm1hdChpLm5hbWUpKSwKICAgICAgICAjIE9yLCB1c2UgYmVsb3cgaWYgeW91IHByZWZlciBub3QgdG8gc3dpdGNoIHRvIHRoYXQgZ3JvdXAuCiAgICAgICAgIyAjIG1vZDEgKyBzaGlmdCArIGxldHRlciBvZiBncm91cCA9IG1vdmUgZm9jdXNlZCB3aW5kb3cgdG8gZ3JvdXAKICAgICAgICAjIEtleShbbW9kLCAic2hpZnQiXSwgaS5uYW1lLCBsYXp5LndpbmRvdy50b2dyb3VwKGkubmFtZSksCiAgICAgICAgIyAgICAgZGVzYz0ibW92ZSBmb2N1c2VkIHdpbmRvdyB0byBncm91cCB7fSIuZm9ybWF0KGkubmFtZSkpLAogICAgI10pCgpsYXlvdXRzID0gWwogICAgbGF5b3V0LkNvbHVtbnMoYm9yZGVyX2ZvY3VzX3N0YWNrPScjZDc1ZjVmJyksCiAgICBsYXlvdXQuTWF4KCksCiAgICAjIFRyeSBtb3JlIGxheW91dHMgYnkgdW5sZWFzaGluZyBiZWxvdyBsYXlvdXRzLgogICAgIyBsYXlvdXQuU3RhY2sobnVtX3N0YWNrcz0yKSwKICAgICMgbGF5b3V0LkJzcCgpLAogICAgIyBsYXlvdXQuTWF0cml4KCksCiAgICAjIGxheW91dC5Nb25hZFRhbGwoKSwKICAgICMgbGF5b3V0Lk1vbmFkV2lkZSgpLAogICAgIyBsYXlvdXQuUmF0aW9UaWxlKCksCiAgICAjIGxheW91dC5UaWxlKCksCiAgICAjIGxheW91dC5UcmVlVGFiKCksCiAgICAjIGxheW91dC5WZXJ0aWNhbFRpbGUoKSwKICAgICMgbGF5b3V0Llpvb215KCksCl0KCndpZGdldF9kZWZhdWx0cyA9IGRpY3QoCiAgICBmb250PSdzYW5zJywKICAgIGZvbnRzaXplPTEyLAogICAgcGFkZGluZz0zLAopCmV4dGVuc2lvbl9kZWZhdWx0cyA9IHdpZGdldF9kZWZhdWx0cy5jb3B5KCkKCnNjcmVlbnMgPSBbCiAgICBTY3JlZW4oCiAgICAgICAgdG9wPWJhci5CYXIoCiAgICAgICAgICAgIFsKICAgICAgICAgICAgICAgIHdpZGdldC5DdXJyZW50TGF5b3V0KCksCiAgICAgICAgICAgICAgICB3aWRnZXQuUHJvbXB0KCksCiAgICAgICAgICAgICAgICB3aWRnZXQuV2luZG93TmFtZSgpLAogICAgICAgICAgICAgICAgd2lkZ2V0LkNob3JkKAogICAgICAgICAgICAgICAgICAgIGNob3Jkc19jb2xvcnM9ewogICAgICAgICAgICAgICAgICAgICAgICAnbGF1bmNoJzogKCIjZmYwMDAwIiwgIiNmZmZmZmYiKSwKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgICAgIG5hbWVfdHJhbnNmb3JtPWxhbWJkYSBuYW1lOiBuYW1lLnVwcGVyKCksCiAgICAgICAgICAgICAgICApLAogICAgICAgICAgICAgICAgd2lkZ2V0LlN5c3RyYXkoKSwKICAgICAgICAgICAgICAgIHdpZGdldC5CYXR0ZXJ5KCksCiAgICAgICAgICAgICAgICB3aWRnZXQuTmV0KAogICAgICAgICAgICAgICAgICAgIGludGVyZmFjZT0id2xwM3MwIiwKICAgICAgICAgICAgICAgICAgICBmb3JtYXQ9J1x1MjE5MyB7ZG93bn0nKSwKICAgICAgICAgICAgICAgIHdpZGdldC5DbG9jayhmb3JtYXQ9JyVBIC0gJWQtJW0tJVkgLSAlSDolTScpLAogICAgICAgICAgICBdLAogICAgICAgICAgICAyNCwKICAgICAgICApLAogICAgKSwKXQoKIyBEcmFnIGZsb2F0aW5nIGxheW91dHMuCm1vdXNlID0gWwogICAgRHJhZyhbbW9kXSwgIkJ1dHRvbjEiLCBsYXp5LndpbmRvdy5zZXRfcG9zaXRpb25fZmxvYXRpbmcoKSwKICAgICAgICAgc3RhcnQ9bGF6eS53aW5kb3cuZ2V0X3Bvc2l0aW9uKCkpLAogICAgRHJhZyhbbW9kXSwgIkJ1dHRvbjMiLCBsYXp5LndpbmRvdy5zZXRfc2l6ZV9mbG9hdGluZygpLAogICAgICAgICBzdGFydD1sYXp5LndpbmRvdy5nZXRfc2l6ZSgpKSwKICAgIENsaWNrKFttb2RdLCAiQnV0dG9uMiIsIGxhenkud2luZG93LmJyaW5nX3RvX2Zyb250KCkpCl0KCmRncm91cHNfa2V5X2JpbmRlciA9IE5vbmUKZGdyb3Vwc19hcHBfcnVsZXMgPSBbXSAgIyB0eXBlOiBMaXN0CmZvbGxvd19tb3VzZV9mb2N1cyA9IFRydWUKYnJpbmdfZnJvbnRfY2xpY2sgPSBGYWxzZQpjdXJzb3Jfd2FycCA9IEZhbHNlCmZsb2F0aW5nX2xheW91dCA9IGxheW91dC5GbG9hdGluZyhmbG9hdF9ydWxlcz1bCiAgICAjIFJ1biB0aGUgdXRpbGl0eSBvZiBgeHByb3BgIHRvIHNlZSB0aGUgd20gY2xhc3MgYW5kIG5hbWUgb2YgYW4gWCBjbGllbnQuCiAgICAqbGF5b3V0LkZsb2F0aW5nLmRlZmF1bHRfZmxvYXRfcnVsZXMsCiAgICBNYXRjaCh3bV9jbGFzcz0nY29uZmlybXJlc2V0JyksICAjIGdpdGsKICAgIE1hdGNoKHdtX2NsYXNzPSdtYWtlYnJhbmNoJyksICAjIGdpdGsKICAgIE1hdGNoKHdtX2NsYXNzPSdtYWtldGFnJyksICAjIGdpdGsKICAgIE1hdGNoKHdtX2NsYXNzPSdzc2gtYXNrcGFzcycpLCAgIyBzc2gtYXNrcGFzcwogICAgTWF0Y2godGl0bGU9J2JyYW5jaGRpYWxvZycpLCAgIyBnaXRrCiAgICBNYXRjaCh0aXRsZT0ncGluZW50cnknKSwgICMgR1BHIGtleSBwYXNzd29yZCBlbnRyeQpdKQphdXRvX2Z1bGxzY3JlZW4gPSBUcnVlCmZvY3VzX29uX3dpbmRvd19hY3RpdmF0aW9uID0gInNtYXJ0IgpyZWNvbmZpZ3VyZV9zY3JlZW5zID0gVHJ1ZQoKIyBJZiB0aGluZ3MgbGlrZSBzdGVhbSBnYW1lcyB3YW50IHRvIGF1dG8tbWluaW1pemUgdGhlbXNlbHZlcyB3aGVuIGxvc2luZwojIGZvY3VzLCBzaG91bGQgd2UgcmVzcGVjdCB0aGlzIG9yIG5vdD8KYXV0b19taW5pbWl6ZSA9IFRydWUKCiMgWFhYOiBHYXNwISBXZSdyZSBseWluZyBoZXJlLiBJbiBmYWN0LCBub2JvZHkgcmVhbGx5IHVzZXMgb3IgY2FyZXMgYWJvdXQgdGhpcwojIHN0cmluZyBiZXNpZGVzIGphdmEgVUkgdG9vbGtpdHM7IHlvdSBjYW4gc2VlIHNldmVyYWwgZGlzY3Vzc2lvbnMgb24gdGhlCiMgbWFpbGluZyBsaXN0cywgR2l0SHViIGlzc3VlcywgYW5kIG90aGVyIFdNIGRvY3VtZW50YXRpb24gdGhhdCBzdWdnZXN0IHNldHRpbmcKIyB0aGlzIHN0cmluZyBpZiB5b3VyIGphdmEgYXBwIGRvZXNuJ3Qgd29yayBjb3JyZWN0bHkuIFdlIG1heSBhcyB3ZWxsIGp1c3QgbGllCiMgYW5kIHNheSB0aGF0IHdlJ3JlIGEgd29ya2luZyBvbmUgYnkgZGVmYXVsdC4KIwojIFdlIGNob29zZSBMRzNEIHRvIG1heGltaXplIGlyb255OiBpdCBpcyBhIDNEIG5vbi1yZXBhcmVudGluZyBXTSB3cml0dGVuIGluCiMgamF2YSB0aGF0IGhhcHBlbnMgdG8gYmUgb24gamF2YSdzIHdoaXRlbGlzdC4Kd21uYW1lID0gIkxHM0QiCgAAAAAAAAAAORkAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACMEAAAAAAAAIwQAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							293,
+							1,
+							"insert",
+							{
+								"characters": "s"
+							},
+							"AQAAAD4XAAAAAAAAPxcAAAAAAAAAAAAA",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA+FwAAAAAAAD4XAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							294,
+							1,
+							"left_delete",
+							null,
+							"AQAAAD4XAAAAAAAAPhcAAAAAAAABAAAAcw",
+							"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA/FwAAAAAAAD8XAAAAAAAAAAAAAAAA8L8"
+						],
+						[
+							1,
+							1,
+							"insert",
+							{
+								"characters": "2"
+							},
+							"AQAAAD4XAAAAAAAAPxcAAAAAAAAAAAAA",
+							"AQAAAAAAAAABAAAAPhcAAAAAAAA+FwAAAAAAAAAAAAAAAPC/"
+						]
+					]
+				}
+			],
+			"build_system": "",
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"console":
+			{
+				"height": 0.0,
+				"history":
+				[
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+			],
+			"find":
+			{
+				"height": 0.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"scrollbar_highlights": true,
+				"show_context": true,
+				"use_buffer2": true,
+				"use_gitignore": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"groups":
+			[
+				{
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "/home/sc/.config/qtile/config.py",
+							"selected": true,
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 6458,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										5951,
+										5951
+									]
+								],
+								"settings":
+								{
+									"syntax": "Packages/Python/Python.sublime-syntax",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 3218.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"stack_multiselect": false,
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 0.0
+			},
+			"input":
+			{
+				"height": 0.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"pinned_build_system": "",
+			"position": "0,0,0,0,0,0,24,1366,768,1366,768,0",
+			"project": "",
+			"replace":
+			{
+				"height": 0.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"selected_group": 0,
+			"settings":
+			{
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 150.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			},
+			"window_id": 1,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+		]
+	}
+}

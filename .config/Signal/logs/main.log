@@ -1,0 +1,206 @@
+{"level":30,"time":"2021-08-04T09:13:24.341Z","pid":3578,"hostname":"stinkpad","msg":"app ready"}
+{"level":30,"time":"2021-08-04T09:13:24.342Z","pid":3578,"hostname":"stinkpad","msg":"starting version 5.10.0"}
+{"level":30,"time":"2021-08-04T09:13:24.342Z","pid":3578,"hostname":"stinkpad","msg":"media access status"}
+{"level":30,"time":"2021-08-04T09:13:24.366Z","pid":3578,"hostname":"stinkpad","msg":"got fast spellcheck setting true"}
+{"level":30,"time":"2021-08-04T09:13:24.367Z","pid":3578,"hostname":"stinkpad","msg":"getSystemTraySetting had no flags and did no DB lookups. Returning DoNotUseSystemTray"}
+{"level":30,"time":"2021-08-04T09:13:24.368Z","pid":3578,"hostname":"stinkpad","msg":"Initializing BrowserWindow config: {\"show\":false,\"width\":1350,\"height\":728,\"minWidth\":680,\"minHeight\":550,\"autoHideMenuBar\":false,\"titleBarStyle\":\"default\",\"backgroundColor\":\"#3a76f0\",\"webPreferences\":{\"devTools\":false,\"nodeIntegration\":false,\"nodeIntegrationInWorker\":false,\"contextIsolation\":false,\"enableRemoteModule\":true,\"preload\":\"/usr/lib/signal-desktop/resources/app.asar/preload.bundle.js\",\"nativeWindowOpen\":true,\"spellcheck\":true,\"backgroundThrottling\":false},\"icon\":\"/usr/lib/signal-desktop/resources/app.asar/images/signal-logo-desktop-linux.png\",\"x\":8,\"y\":32}"}
+{"level":30,"time":"2021-08-04T09:13:24.436Z","pid":3578,"hostname":"stinkpad","msg":"spellcheck: user locale: en-US"}
+{"level":30,"time":"2021-08-04T09:13:24.436Z","pid":3578,"hostname":"stinkpad","msg":"spellcheck: available spellchecker languages:  [\"af\",\"bg\",\"ca\",\"cs\",\"cy\",\"da\",\"de\",\"de-DE\",\"el\",\"en-AU\",\"en-CA\",\"en-GB\",\"en-GB-oxendict\",\"en-US\",\"es\",\"es-419\",\"es-AR\",\"es-ES\",\"es-MX\",\"es-US\",\"et\",\"fa\",\"fo\",\"fr\",\"fr-FR\",\"he\",\"hi\",\"hr\",\"hu\",\"hy\",\"id\",\"it\",\"it-IT\",\"ko\",\"lt\",\"lv\",\"nb\",\"nl\",\"pl\",\"pt\",\"pt-BR\",\"pt-PT\",\"ro\",\"ru\",\"sh\",\"sk\",\"sl\",\"sq\",\"sr\",\"sv\",\"ta\",\"tg\",\"tr\",\"uk\",\"vi\"]"}
+{"level":30,"time":"2021-08-04T09:13:24.436Z","pid":3578,"hostname":"stinkpad","msg":"spellcheck: setting languages to:  [\"en-US\"]"}
+{"level":30,"time":"2021-08-04T09:13:24.452Z","pid":3578,"hostname":"stinkpad","msg":"got fast spellcheck setting true"}
+{"level":30,"time":"2021-08-04T09:13:24.470Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: created"}
+{"level":30,"time":"2021-08-04T09:13:24.470Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: updating main window. Previously, there was not a window, and now there is"}
+{"level":30,"time":"2021-08-04T09:13:24.470Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: rendering no tray"}
+{"level":30,"time":"2021-08-04T09:13:24.470Z","pid":3578,"hostname":"stinkpad","msg":"Begin ensuring permissions"}
+{"level":30,"time":"2021-08-04T09:13:24.478Z","pid":3578,"hostname":"stinkpad","msg":"Ensuring file permissions for 4 files"}
+{"level":30,"time":"2021-08-04T09:13:24.480Z","pid":3578,"hostname":"stinkpad","msg":"Finish ensuring permissions in 10ms"}
+{"level":30,"time":"2021-08-04T09:13:26.881Z","pid":3578,"hostname":"stinkpad","msg":"sending `database-ready`"}
+{"level":30,"time":"2021-08-04T09:13:26.891Z","pid":3578,"hostname":"stinkpad","msg":"main window is ready-to-show"}
+{"level":30,"time":"2021-08-04T09:13:26.892Z","pid":3578,"hostname":"stinkpad","msg":"showing main window"}
+{"level":30,"time":"2021-08-04T09:13:26.894Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: rendering no tray"}
+{"level":30,"time":"2021-08-04T09:13:27.513Z","pid":3578,"hostname":"stinkpad","msg":"deleteAll: deleted 1 files"}
+{"level":30,"time":"2021-08-04T09:13:27.565Z","pid":3578,"hostname":"stinkpad","msg":"deleteAllStickers: deleted 0 files"}
+{"level":30,"time":"2021-08-04T09:13:27.568Z","pid":3578,"hostname":"stinkpad","msg":"deleteAllDraftAttachments: deleted 0 files"}
+{"level":30,"time":"2021-08-04T09:13:27.569Z","pid":3578,"hostname":"stinkpad","msg":"Begin ensuring permissions"}
+{"level":30,"time":"2021-08-04T09:13:27.604Z","pid":3578,"hostname":"stinkpad","msg":"Ensuring file permissions for 699 files"}
+{"level":50,"time":"2021-08-04T09:13:27.607Z","pid":3578,"hostname":"stinkpad","msg":"ensureFilePermissions: Error from chmod ENOENT: no such file or directory, chmod '[REDACTED]/SingletonCookie'"}
+{"level":50,"time":"2021-08-04T09:13:27.607Z","pid":3578,"hostname":"stinkpad","msg":"ensureFilePermissions: Error from chmod ENOENT: no such file or directory, chmod '[REDACTED]/SingletonLock'"}
+{"level":30,"time":"2021-08-04T09:13:27.653Z","pid":3578,"hostname":"stinkpad","msg":"Finish ensuring permissions in 84ms"}
+{"level":30,"time":"2021-08-04T09:15:23.693Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: setting unread count to 1"}
+{"level":30,"time":"2021-08-04T09:15:23.694Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: rendering no tray"}
+{"level":30,"time":"2021-08-04T09:15:47.961Z","pid":3578,"hostname":"stinkpad","msg":"updater/start: Updates disabled - not starting new version checks"}
+{"level":30,"time":"2021-08-04T09:15:48.014Z","pid":3578,"hostname":"stinkpad","msg":"App loaded - time: 143821"}
+{"level":30,"time":"2021-08-04T09:15:48.014Z","pid":3578,"hostname":"stinkpad","msg":"SQL init - time: 118"}
+{"level":30,"time":"2021-08-04T09:15:48.015Z","pid":3578,"hostname":"stinkpad","msg":"Preload - time: 1804"}
+{"level":30,"time":"2021-08-04T09:15:48.015Z","pid":3578,"hostname":"stinkpad","msg":"WebSocket connect - time: 4492"}
+{"level":30,"time":"2021-08-04T09:15:48.015Z","pid":3578,"hostname":"stinkpad","msg":"Processed count: 8865"}
+{"level":30,"time":"2021-08-04T09:15:48.015Z","pid":3578,"hostname":"stinkpad","msg":"Messages per second: 64.46100708962007"}
+{"level":30,"time":"2021-08-04T09:15:48.054Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query getUnreadByConversationAndMarkRead duration=25ms"}
+{"level":30,"time":"2021-08-04T09:15:48.372Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveAttachmentDownloadJob duration=28ms"}
+{"level":30,"time":"2021-08-04T09:15:49.521Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=13ms"}
+{"level":30,"time":"2021-08-04T09:15:49.558Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=29ms"}
+{"level":30,"time":"2021-08-04T09:15:49.570Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-04T09:15:49.838Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessages duration=129ms"}
+{"level":30,"time":"2021-08-04T09:15:50.481Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=101ms"}
+{"level":30,"time":"2021-08-04T09:15:50.597Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: setting unread count to 0"}
+{"level":30,"time":"2021-08-04T09:15:50.597Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: rendering no tray"}
+{"level":30,"time":"2021-08-04T09:15:51.176Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=13ms"}
+{"level":30,"time":"2021-08-04T09:15:53.210Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query getMessageMetricsForConversation duration=26ms"}
+{"level":30,"time":"2021-08-04T09:15:54.161Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query setAttachmentDownloadJobPending duration=37ms"}
+{"level":30,"time":"2021-08-04T09:15:55.504Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query removeAttachmentDownloadJob duration=12ms"}
+{"level":30,"time":"2021-08-04T09:16:07.844Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=34ms"}
+{"level":30,"time":"2021-08-04T09:16:14.249Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=11ms"}
+{"level":30,"time":"2021-08-04T09:16:19.231Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=26ms"}
+{"level":30,"time":"2021-08-04T09:16:35.420Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query removeAttachmentDownloadJob duration=26ms"}
+{"level":30,"time":"2021-08-04T09:16:53.913Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=28ms"}
+{"level":30,"time":"2021-08-04T09:17:08.555Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query setAttachmentDownloadJobPending duration=25ms"}
+{"level":30,"time":"2021-08-04T09:17:08.887Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query removeAttachmentDownloadJob duration=12ms"}
+{"level":30,"time":"2021-08-04T09:17:16.321Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=33ms"}
+{"level":30,"time":"2021-08-04T09:17:20.139Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=32ms"}
+{"level":30,"time":"2021-08-04T09:17:37.081Z","pid":3578,"hostname":"stinkpad","msg":"close event {\"shouldQuit\":false}"}
+{"level":30,"time":"2021-08-04T09:17:37.082Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: rendering no tray"}
+{"level":30,"time":"2021-08-04T09:17:37.082Z","pid":3578,"hostname":"stinkpad","msg":"requestShutdown: Requesting close of mainWindow..."}
+{"level":30,"time":"2021-08-04T09:17:37.131Z","pid":3578,"hostname":"stinkpad","msg":"ts/sql/main: slow query close duration=44ms"}
+{"level":30,"time":"2021-08-04T09:17:37.132Z","pid":3578,"hostname":"stinkpad","msg":"requestShutdown: Response received"}
+{"level":30,"time":"2021-08-04T09:17:37.137Z","pid":3578,"hostname":"stinkpad","msg":"before-quit event {\"readyForShutdown\":true,\"shouldQuit\":false}"}
+{"level":30,"time":"2021-08-04T09:17:37.137Z","pid":3578,"hostname":"stinkpad","msg":"close event {\"readyForShutdown\":true,\"shouldQuit\":true}"}
+{"level":30,"time":"2021-08-04T09:17:37.144Z","pid":3578,"hostname":"stinkpad","msg":"System tray service: updating main window. Previously, there was a window, and now there is not"}
+{"level":30,"time":"2021-08-05T12:35:51.818Z","pid":18333,"hostname":"stinkpad","msg":"app ready"}
+{"level":30,"time":"2021-08-05T12:35:51.819Z","pid":18333,"hostname":"stinkpad","msg":"starting version 5.12.1"}
+{"level":30,"time":"2021-08-05T12:35:51.819Z","pid":18333,"hostname":"stinkpad","msg":"media access status"}
+{"level":30,"time":"2021-08-05T12:35:51.850Z","pid":18333,"hostname":"stinkpad","msg":"got fast spellcheck setting true"}
+{"level":30,"time":"2021-08-05T12:35:51.851Z","pid":18333,"hostname":"stinkpad","msg":"getSystemTraySetting had no flags and did no DB lookups. Returning DoNotUseSystemTray"}
+{"level":30,"time":"2021-08-05T12:35:51.852Z","pid":18333,"hostname":"stinkpad","msg":"Initializing BrowserWindow config: {\"show\":false,\"width\":1350,\"height\":728,\"minWidth\":680,\"minHeight\":550,\"autoHideMenuBar\":false,\"titleBarStyle\":\"default\",\"backgroundColor\":\"#3a76f0\",\"webPreferences\":{\"devTools\":false,\"nodeIntegration\":false,\"nodeIntegrationInWorker\":false,\"contextIsolation\":false,\"enableRemoteModule\":true,\"preload\":\"/usr/lib/signal-desktop/resources/app.asar/preload.bundle.js\",\"nativeWindowOpen\":true,\"spellcheck\":true,\"backgroundThrottling\":false},\"icon\":\"/usr/lib/signal-desktop/resources/app.asar/images/signal-logo-desktop-linux.png\",\"x\":8,\"y\":32}"}
+{"level":30,"time":"2021-08-05T12:35:51.928Z","pid":18333,"hostname":"stinkpad","msg":"spellcheck: user locale: en-US"}
+{"level":30,"time":"2021-08-05T12:35:51.929Z","pid":18333,"hostname":"stinkpad","msg":"spellcheck: available spellchecker languages:  [\"af\",\"bg\",\"ca\",\"cs\",\"cy\",\"da\",\"de\",\"de-DE\",\"el\",\"en-AU\",\"en-CA\",\"en-GB\",\"en-GB-oxendict\",\"en-US\",\"es\",\"es-419\",\"es-AR\",\"es-ES\",\"es-MX\",\"es-US\",\"et\",\"fa\",\"fo\",\"fr\",\"fr-FR\",\"he\",\"hi\",\"hr\",\"hu\",\"hy\",\"id\",\"it\",\"it-IT\",\"ko\",\"lt\",\"lv\",\"nb\",\"nl\",\"pl\",\"pt\",\"pt-BR\",\"pt-PT\",\"ro\",\"ru\",\"sh\",\"sk\",\"sl\",\"sq\",\"sr\",\"sv\",\"ta\",\"tg\",\"tr\",\"uk\",\"vi\"]"}
+{"level":30,"time":"2021-08-05T12:35:51.929Z","pid":18333,"hostname":"stinkpad","msg":"spellcheck: setting languages to:  [\"en-US\"]"}
+{"level":30,"time":"2021-08-05T12:35:51.945Z","pid":18333,"hostname":"stinkpad","msg":"got fast spellcheck setting true"}
+{"level":30,"time":"2021-08-05T12:35:51.962Z","pid":18333,"hostname":"stinkpad","msg":"System tray service: created"}
+{"level":30,"time":"2021-08-05T12:35:51.962Z","pid":18333,"hostname":"stinkpad","msg":"System tray service: updating main window. Previously, there was not a window, and now there is"}
+{"level":30,"time":"2021-08-05T12:35:51.962Z","pid":18333,"hostname":"stinkpad","msg":"System tray service: rendering no tray"}
+{"level":30,"time":"2021-08-05T12:35:51.963Z","pid":18333,"hostname":"stinkpad","msg":"Begin ensuring permissions"}
+{"level":30,"time":"2021-08-05T12:35:51.973Z","pid":18333,"hostname":"stinkpad","msg":"Ensuring file permissions for 4 files"}
+{"level":30,"time":"2021-08-05T12:35:51.975Z","pid":18333,"hostname":"stinkpad","msg":"Finish ensuring permissions in 12ms"}
+{"level":30,"time":"2021-08-05T12:35:54.420Z","pid":18333,"hostname":"stinkpad","msg":"sending `database-ready`"}
+{"level":30,"time":"2021-08-05T12:35:54.430Z","pid":18333,"hostname":"stinkpad","msg":"main window is ready-to-show"}
+{"level":30,"time":"2021-08-05T12:35:54.431Z","pid":18333,"hostname":"stinkpad","msg":"showing main window"}
+{"level":30,"time":"2021-08-05T12:35:54.432Z","pid":18333,"hostname":"stinkpad","msg":"System tray service: rendering no tray"}
+{"level":30,"time":"2021-08-05T12:35:54.911Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query removeKnownAttachments duration=118ms"}
+{"level":30,"time":"2021-08-05T12:35:54.931Z","pid":18333,"hostname":"stinkpad","msg":"deleteAll: deleted 17 files"}
+{"level":30,"time":"2021-08-05T12:35:54.996Z","pid":18333,"hostname":"stinkpad","msg":"deleteAllStickers: deleted 0 files"}
+{"level":30,"time":"2021-08-05T12:35:54.999Z","pid":18333,"hostname":"stinkpad","msg":"deleteAllDraftAttachments: deleted 0 files"}
+{"level":30,"time":"2021-08-05T12:35:55.106Z","pid":18333,"hostname":"stinkpad","msg":"Begin ensuring permissions"}
+{"level":30,"time":"2021-08-05T12:35:55.191Z","pid":18333,"hostname":"stinkpad","msg":"Ensuring file permissions for 1604 files"}
+{"level":50,"time":"2021-08-05T12:35:55.200Z","pid":18333,"hostname":"stinkpad","msg":"ensureFilePermissions: Error from chmod ENOENT: no such file or directory, chmod '[REDACTED]/SingletonCookie'"}
+{"level":50,"time":"2021-08-05T12:35:55.200Z","pid":18333,"hostname":"stinkpad","msg":"ensureFilePermissions: Error from chmod ENOENT: no such file or directory, chmod '[REDACTED]/SingletonLock'"}
+{"level":30,"time":"2021-08-05T12:35:55.326Z","pid":18333,"hostname":"stinkpad","msg":"Finish ensuring permissions in 220ms"}
+{"level":30,"time":"2021-08-05T12:36:22.406Z","pid":18333,"hostname":"stinkpad","msg":"updater/start: Updates disabled - not starting new version checks"}
+{"level":30,"time":"2021-08-05T12:36:22.454Z","pid":18333,"hostname":"stinkpad","msg":"App loaded - time: 30788"}
+{"level":30,"time":"2021-08-05T12:36:22.454Z","pid":18333,"hostname":"stinkpad","msg":"SQL init - time: 275"}
+{"level":30,"time":"2021-08-05T12:36:22.454Z","pid":18333,"hostname":"stinkpad","msg":"Preload - time: 1831"}
+{"level":30,"time":"2021-08-05T12:36:22.454Z","pid":18333,"hostname":"stinkpad","msg":"WebSocket connect - time: 1234"}
+{"level":30,"time":"2021-08-05T12:36:22.454Z","pid":18333,"hostname":"stinkpad","msg":"Processed count: 1927"}
+{"level":30,"time":"2021-08-05T12:36:22.454Z","pid":18333,"hostname":"stinkpad","msg":"Messages per second: 69.50907188976662"}
+{"level":30,"time":"2021-08-05T12:36:22.516Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveAttachmentDownloadJob duration=12ms"}
+{"level":30,"time":"2021-08-05T12:36:22.762Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T12:36:22.855Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessages duration=27ms"}
+{"level":30,"time":"2021-08-05T12:36:23.028Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=46ms"}
+{"level":30,"time":"2021-08-05T12:36:23.273Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=13ms"}
+{"level":30,"time":"2021-08-05T12:36:25.786Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=41ms"}
+{"level":30,"time":"2021-08-05T12:36:29.693Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=20ms"}
+{"level":30,"time":"2021-08-05T12:37:36.523Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query createOrUpdateItem duration=30ms"}
+{"level":30,"time":"2021-08-05T12:37:38.956Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query updateConversations duration=15ms"}
+{"level":30,"time":"2021-08-05T12:38:51.277Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T12:38:58.654Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T12:38:58.884Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=13ms"}
+{"level":30,"time":"2021-08-05T12:45:55.210Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query createOrUpdateItem duration=98ms"}
+{"level":30,"time":"2021-08-05T12:50:55.210Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query createOrUpdateItem duration=98ms"}
+{"level":30,"time":"2021-08-05T13:23:57.968Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:23:58.197Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=13ms"}
+{"level":30,"time":"2021-08-05T13:32:23.962Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=14ms"}
+{"level":30,"time":"2021-08-05T13:32:24.194Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=15ms"}
+{"level":30,"time":"2021-08-05T13:32:24.231Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=37ms"}
+{"level":30,"time":"2021-08-05T13:32:24.904Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=16ms"}
+{"level":30,"time":"2021-08-05T13:32:44.126Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T13:32:57.105Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:33:00.166Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:33:00.894Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T13:33:01.120Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:33:01.426Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=13ms"}
+{"level":30,"time":"2021-08-05T13:33:07.659Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:33:07.886Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=13ms"}
+{"level":30,"time":"2021-08-05T13:33:07.927Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=33ms"}
+{"level":30,"time":"2021-08-05T13:33:08.823Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:33:19.006Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=14ms"}
+{"level":30,"time":"2021-08-05T13:33:19.238Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:33:26.378Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:34:50.154Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=32ms"}
+{"level":30,"time":"2021-08-05T13:35:49.845Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:35:54.772Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:35:55.299Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:35:57.337Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=13ms"}
+{"level":30,"time":"2021-08-05T13:35:57.637Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:36:06.784Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=34ms"}
+{"level":30,"time":"2021-08-05T13:36:12.614Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=17ms"}
+{"level":30,"time":"2021-08-05T13:38:36.303Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query getUnreadByConversationAndMarkRead duration=11ms"}
+{"level":30,"time":"2021-08-05T13:38:36.870Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=25ms"}
+{"level":30,"time":"2021-08-05T13:38:36.882Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T13:38:37.690Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query deleteJob duration=12ms"}
+{"level":30,"time":"2021-08-05T13:38:56.493Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T13:38:56.557Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=28ms"}
+{"level":30,"time":"2021-08-05T14:05:55.211Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query createOrUpdateItem duration=98ms"}
+{"level":30,"time":"2021-08-05T14:15:55.211Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query createOrUpdateItem duration=100ms"}
+{"level":30,"time":"2021-08-05T14:20:55.212Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query createOrUpdateItem duration=99ms"}
+{"level":30,"time":"2021-08-05T14:24:24.011Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T14:24:24.028Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:24:24.062Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=34ms"}
+{"level":30,"time":"2021-08-05T14:24:24.081Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T14:24:24.100Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T14:24:25.330Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=12ms"}
+{"level":30,"time":"2021-08-05T14:24:25.399Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=29ms"}
+{"level":30,"time":"2021-08-05T14:24:25.419Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:24:25.448Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=29ms"}
+{"level":30,"time":"2021-08-05T14:24:25.474Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:24:25.488Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=14ms"}
+{"level":30,"time":"2021-08-05T14:24:26.141Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=16ms"}
+{"level":30,"time":"2021-08-05T14:24:26.160Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:24:26.184Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=19ms"}
+{"level":30,"time":"2021-08-05T14:24:26.222Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=16ms"}
+{"level":30,"time":"2021-08-05T14:24:28.732Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=15ms"}
+{"level":30,"time":"2021-08-05T14:24:28.989Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=35ms"}
+{"level":30,"time":"2021-08-05T14:24:29.085Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=12ms"}
+{"level":30,"time":"2021-08-05T14:24:30.007Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:28:20.445Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=14ms"}
+{"level":30,"time":"2021-08-05T14:28:20.483Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=20ms"}
+{"level":30,"time":"2021-08-05T14:28:20.543Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=53ms"}
+{"level":30,"time":"2021-08-05T14:28:20.555Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:28:20.570Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=14ms"}
+{"level":30,"time":"2021-08-05T14:28:30.444Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=20ms"}
+{"level":30,"time":"2021-08-05T14:28:30.477Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=17ms"}
+{"level":30,"time":"2021-08-05T14:28:30.512Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:28:30.638Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=17ms"}
+{"level":30,"time":"2021-08-05T14:28:30.721Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:28:30.749Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=14ms"}
+{"level":30,"time":"2021-08-05T14:28:31.498Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query createOrUpdateItem duration=26ms"}
+{"level":30,"time":"2021-08-05T14:28:33.636Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:31:46.583Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=39ms"}
+{"level":30,"time":"2021-08-05T14:32:05.138Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:32:10.227Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query updateConversations duration=28ms"}
+{"level":30,"time":"2021-08-05T14:33:59.776Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=17ms"}
+{"level":30,"time":"2021-08-05T14:34:00.000Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=16ms"}
+{"level":30,"time":"2021-08-05T14:40:03.682Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=21ms"}
+{"level":30,"time":"2021-08-05T14:40:03.740Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=14ms"}
+{"level":30,"time":"2021-08-05T14:40:03.961Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=24ms"}
+{"level":30,"time":"2021-08-05T14:40:03.991Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=30ms"}
+{"level":30,"time":"2021-08-05T14:40:04.004Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=12ms"}
+{"level":30,"time":"2021-08-05T14:41:49.839Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=15ms"}
+{"level":30,"time":"2021-08-05T14:41:49.881Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=30ms"}
+{"level":30,"time":"2021-08-05T14:41:57.348Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=13ms"}
+{"level":30,"time":"2021-08-05T14:41:57.381Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query updateConversations duration=19ms"}
+{"level":30,"time":"2021-08-05T14:41:57.480Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=44ms"}
+{"level":30,"time":"2021-08-05T14:41:57.512Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=15ms"}
+{"level":30,"time":"2021-08-05T14:41:58.546Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=11ms"}
+{"level":30,"time":"2021-08-05T14:42:00.961Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=23ms"}
+{"level":30,"time":"2021-08-05T14:42:01.491Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query insertSentProto duration=26ms"}
+{"level":30,"time":"2021-08-05T14:42:03.987Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query commitSessionsAndUnprocessed duration=12ms"}
+{"level":30,"time":"2021-08-05T14:42:14.351Z","pid":18333,"hostname":"stinkpad","msg":"ts/sql/main: slow query saveMessage duration=28ms"}
